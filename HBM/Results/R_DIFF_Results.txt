@@ -113,3 +113,9 @@ Pattern:3270943 Class_WT:480 //  Sort_WT:548 --> DIFF_WT:68
 Pattern:3375295 Class_WT:180 //  Sort_WT:236 --> DIFF_WT:56
 Pattern:3375296 Class_WT:180 //  Sort_WT:236 --> DIFF_WT:56
 Pattern:3765470 Class_WT:1000 //  Sort_WT:2000 --> DIFF_WT:1000
+Pattern:3765471 Class_WT:220 //  Sort_WT:240 --> DIFF_WT:20
+Pattern:3842337 Class_WT:456 //  Sort_WT:532 --> DIFF_WT:76
+Pattern:3842338 Class_WT:516 //  Sort_WT:580 --> DIFF_WT:64
+Pattern:4433299 Class_WT:192 //  Sort_WT:260 --> DIFF_WT:68
+Pattern:4433300 Class_WT:196 //  Sort_WT:248 --> DIFF_WT:52
+Pattern:4433341 Class_WT:176 //  Sort_WT:236 --> DIFF_WT:60

@@ -11,7 +11,7 @@ from traceback import print_tb
 
 
 ## ************** Just for WT FIX *****
-fix = 4 # Enable fiz function -> Normal Mode // 1 - . add WT Full Plist mode // 2 -> add hald diff // 3 -> multipli Wt  Full plist 
+fix = 0 # Enable fiz function -> Normal Mode // 1 - . add WT Full Plist mode // 2 -> add hald diff // 3 -> multipli Wt  Full plist 
         # 4 -> when patterns doesnt existn in Sort, so first select mode 5 then 4
 WT_fix = 1000 # WT you need to increase
 delta = 200
@@ -30,7 +30,7 @@ results_file = open('HBM\Results.txt')
 
 #Global Variables 
 Class_file = 'HBM\Files\patmodify_class.txt'
-Sort_File = 'HBM\Files\patmodify_sort.txt'
+Sort_File = 'HBM\Files\patmodify_Sort.txt'
 Default_Sort_File = 'HBM\Files\patmod_SORT.txt'
 Plist_File = 'HBM\Final_Plist.txt'
 #Env_Flie = 'HBM\Files\EnvironmentFile_!ENG!.env'
@@ -92,7 +92,7 @@ def get_ID():
         #print(pttrn_list) # show list of pttrn ID list 
     len_pttrn_list = len(pttrn_list)
     print('Len Plist:',len_pttrn_list) 
-    print('Pattern ID:',pttrn_list) # show list of pttrn ID list 
+    #print('Pattern ID:',pttrn_list) # show list of pttrn ID list 
 
     with open("HBM\Results\R_Plist.txt", "w") as external_file:
         print('Pttrn:',pttrn_list, file=external_file)
@@ -124,7 +124,7 @@ def get_class():
     len_class_list = len(class_list)
     print('Len Class:',len_class_list//2)
           
-    print(class_list) #full class vecto
+    #print(class_list) #full class vecto
 
     with open("HBM\R_Class_data.txt", "w") as external_file:
         for index1 in pttrn_list: # get VID list
@@ -146,19 +146,20 @@ def get_sort():
     for index3 in pttrn_list:  # get VID from plist
         #print(index3) # print Class VID  
         for index4 in date_sort:
-            #print(index4[4][2:9]) # VID sort data 
+            #print(index4[4][1:8]) # VID sort data 
             #print(index4[5]) # TYPE sort data
             #print(index4[9]) #WT sort data
             sort_sub_list = [] # sort vector data
-            if index3 == index4[4][2:9]: # Compare Class VID agains VID PLIST if are equals get data from Class
+            if index3 == index4[4][1:8]: # Compare Class VID agains VID PLIST if are equals get data from Class
                 sort_WT1 = index4[9].split(",")
                 sort_WT =  int(sort_WT1[0])
                 #print('Pttrn:',index4[4][2:9],'de',index4[5][0:3],'WT:',sort_WT ) # SHOW SORT DATA
-                sort_sub_list.append(index4[4][2:9])
+                sort_sub_list.append(index4[4][1:8])
                 sort_sub_list.append(index4[5][0:3])
                 sort_sub_list.append(sort_WT)
                 sort_list.append(sort_sub_list) #List compare with list Sort, Full list
     len_sort_list = len(sort_list)
+    
     print('Len Sort:',len_sort_list//2)
 
     with open("HBM\R_Sort_data.txt", "w") as sort_file:
