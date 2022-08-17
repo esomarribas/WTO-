@@ -88,10 +88,12 @@ def get_ID():
     for linea in date_list:
         print(linea)
         pttrn_ID = linea[9:16] # variable use to get pttrn ID
+        #pttrn_ID = linea[0:7] # variable use to get pttrn ID
         pttrn_list.append(pttrn_ID)#List with all pttrn 
-        #print(pttrn_list) # show list of pttrn ID list 
+         
     len_pttrn_list = len(pttrn_list)
-    print('Len Plist:',len_pttrn_list) 
+    print('Len Plist:',len_pttrn_list)
+    print(pttrn_list) # show list of pttrn ID list 
     #print('Pattern ID:',pttrn_list) # show list of pttrn ID list 
 
     with open("MCC\Results\R_Plist.txt", "w") as external_file:
@@ -118,6 +120,7 @@ def get_class():
                 len_class_VID.append(index2[4][9:16]) 
                 class_sub_list.append(index2[4][9:16]) # VID
                 class_sub_list.append(index2[5][0:3]) # Type
+                #class_sub_list.append(index2[9]) # WT
                 class_sub_list.append(int(index2[9])) # WT
                 class_list.append(class_sub_list) #List compare with list Sort, Full list
     len_class_list = len(class_list)
