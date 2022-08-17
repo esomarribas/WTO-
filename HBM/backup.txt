@@ -1,0 +1,44 @@
+
+def get_Results():
+    for index4 in date_sort:
+        for index2 in date_class:
+            if index4[4][2:9] == index2[4][9:16]: #and 
+                #print('Class WT: ',index2[4][9:16], ' =', 'Sort WT: ', index4[4][2:9] ) # compare both WTS
+                #print('Index 4:', index4) # print full sort WT
+                WT_sort1 = index4[9].split(",") # split WT and R7
+                WT_sort =int(WT_sort1[0])# Class WT
+                #print(WT_sort) # print WT 
+                #print('Index 2:', index2)
+                WT_class = int(index2[9]) # Sort WT
+                diff_WT = WT_sort - WT_class
+                tap_WT = WT_class//4
+                check_WT = WT_class //  tap_WT 
+                str_stf_WT = str(WT_class) + ',R7'
+                str_tap_WT = str(tap_WT) + ',R7' # wait time sort convertido a str
+                str_VID = str('*V' + index2[4][9:16] + '*D')
+                #print(WT_class) # print WT class
+                
+                if index2[5][0:3] == 'STF':
+                    if WT_sort > WT_class: 
+                        #print('For VID:',index4[4][2:9],' WT_sort: ',WT_sort, '>', 'WT_class',  WT_class, 'so Final WT:', WT_class, 'Diff WT:', diff_WT )
+                        #print('STF WT:', WT_class,'TAP WT:', tap_WT, 'Check WT:',  check_WT) 
+                        #if check_WT == 4:
+                            #print('Check WT: TRUE ')
+                        #else: 
+                            #print('Check WT: FALSE ')
+                        STF = '+ SBFT_WAITTIME MAIN PAT',str_VID,':STF STF_TEST_WAIT_START 602 OPCODE_OPERAND MOV', str_stf_WT 
+                        TAP = '+ SBFT_WAITTIME MAIN PAT',str_VID,':TAP TAP_TEST_WAIT_START 146 OPCODE_OPERAND MOV', str_tap_WT
+                        #print(STF)
+                        #print(TAP)
+                        #print('+ SBFT_WAITTIME MAIN PAT',str_VID,':STF STF_TEST_WAIT_START 602 OPCODE_OPERAND MOV', str_stf_WT )
+                        #print('+ SBFT_WAITTIME MAIN PAT',str_VID,':TAP TAP_TEST_WAIT_START 146 OPCODE_OPERAND MOV', str_tap_WT )
+                        with open('MCC\Prueba3.txt', 'a') as filehandle:
+                            #print(str(STF), file = filehandle)
+                            #print(str(TAP), file = filehandle)
+                            filehandle.close()
+    # ********* Way to compera Class VID and Sort VID  ***************
+    #print('Index 4:', index4[4][2:9]) ## Sort WT
+    #print('Index 2:', index2[4][9:16]) ## Class WT
+    #print('Index 4:', index4[4]) ## Sort full  WT
+    #print('Index 2:', index2[4])## Calsds full WT
+    get_Results()
